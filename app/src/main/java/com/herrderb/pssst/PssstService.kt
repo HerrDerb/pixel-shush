@@ -32,6 +32,9 @@ import androidx.core.content.ContextCompat
  * accelerometer only keeps running for a short grace period. After that the wake-up
  * proximity sensor is the trigger: NEAR opens a short accelerometer check to confirm
  * face down, FAR while flipped opens one to confirm the phone was picked up.
+ *
+ * Rooted Pixel with the Magisk module: the shush nanoapp on the sensor hub does all of this
+ * ([ShushHub]) and the service only reacts to its events.
  */
 class PssstService : Service(), SensorEventListener {
 
@@ -47,6 +50,11 @@ class PssstService : Service(), SensorEventListener {
     private var proximity: Sensor? = null
     private val detector = FlipDetector()
 
+    /** Set while the sensor hub does the detection; then Pssst's own sensors stay off. */
+    private var hub: ShushHub? = null
+    private var hubFlipped = false
+    private val isFlipped get() = hubFlipped || detector.isFlipped
+
     private var accelOn = false
     private var proximityOn = false
     private var screenOn = true
@@ -61,7 +69,8 @@ class PssstService : Service(), SensorEventListener {
     private val screenReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             screenOn = intent.action == Intent.ACTION_SCREEN_ON
-            applyScreenState()
+            val shush = hub
+            if (shush != null) shush.setScreenOn(screenOn) else applyScreenState()
         }
     }
 
@@ -98,7 +107,8 @@ class PssstService : Service(), SensorEventListener {
         Log.i(TAG, "Started. Wake-up accelerometer: ${sensors.getDefaultSensor(Sensor.TYPE_ACCELEROMETER, true) != null}, proximity: ${proximity?.name}")
         handler.post {
             zen.ensure()
-            applyScreenState()
+            hub = connectHub()
+            if (hub == null) applyScreenState()
         }
     }
 
@@ -108,12 +118,38 @@ class PssstService : Service(), SensorEventListener {
         unregisterReceiver(screenReceiver)
         handler.post {
             handler.removeCallbacksAndMessages(null)
+            hub?.stop()
             sensors.unregisterListener(this)
-            if (detector.isFlipped) zen.setActive(false)
+            if (isFlipped) zen.setActive(false)
             if (wakeLock.isHeld) wakeLock.release()
         }
         thread.quitSafely()
         super.onDestroy()
+    }
+
+    // --- Sensor hub (all on the sensor thread) ---
+
+    private fun connectHub(): ShushHub? {
+        // Hub events wake the CPU only while the framework delivers them: hold our own
+        // wake lock until the posted event has run.
+        val executor = java.util.concurrent.Executor { task ->
+            wakeLock.acquire(HUB_EVENT_WAKE_MS)
+            handler.post(task)
+        }
+        val shush = ShushHub.connect(this, handler, executor, screenOn, ::onHubEvent)
+        Log.i(TAG, if (shush != null) "Using the sensor hub nanoapp" else "Using the app's own sensors")
+        return shush
+    }
+
+    private fun onHubEvent(faceDown: Boolean) {
+        if (faceDown && !hubFlipped) {
+            hubFlipped = true
+            onFlipped()
+        } else if (!faceDown && hubFlipped) {
+            hubFlipped = false
+            onUnflipped()
+        }
+        // The wake lock times out on its own, after the delayed "off" tick.
     }
 
     // --- Sensor modes (all on the sensor thread) ---
@@ -305,6 +341,9 @@ class PssstService : Service(), SensorEventListener {
         /** A NEAR check ends early once the phone is still tilted this much after this long. */
         private const val EARLY_END_AFTER_NS = 500_000_000L
         private const val EARLY_END_ANGLE_RAD = 0.5f
+
+        /** Covers posting a sensor hub event to the sensor thread. */
+        private const val HUB_EVENT_WAKE_MS = 1_000L
 
         /** Digital Wellbeing delays the "off" tick by 100 ms. */
         private const val OFF_VIBRATION_DELAY_MS = 100L

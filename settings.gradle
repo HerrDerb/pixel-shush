@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Pssst"
-include ':app'
+include ':app', ':hiddenapi-stubs'

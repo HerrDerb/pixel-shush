@@ -1,0 +1,10 @@
+// Compile-time stand-ins for the @SystemApi sensor hub (CHRE) classes, which the public
+// android.jar leaves out. compileOnly: the real framework classes are used at runtime.
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}

@@ -18,4 +18,21 @@
     <string name="first_flip_title">You just used Pssst</string>
     <string name="first_flip_body">This gesture turns on Do Not Disturb and stops most interruptions</string>
     <string name="first_flip_action">Change Do Not Disturb settings</string>
+    <string name="hub_title">Pixel sensor hub</string>
+    <string name="hub_check_root">Root access</string>
+    <string name="hub_check_magisk">Magisk</string>
+    <string name="hub_check_nanoapp">Flip to Shhh nanoapp</string>
+    <string name="hub_check_system">Installed as system app</string>
+    <string name="hub_active">The sensor hub detects face down, like Flip to Shhh on Pixel. Pssst\'s own sensor readout is off.</string>
+    <string name="hub_install_hint">Install the Magisk module so the sensor hub can detect face down. More reliable with the screen off and easier on the battery.</string>
+    <string name="hub_reboot_needed">Module installed. Restart your phone to use the sensor hub.</string>
+    <string name="hub_removed">Module removed. Restart your phone to finish.</string>
+    <string name="hub_no_nanoapp">The Flip to Shhh nanoapp is not available on this phone. Pssst uses its own sensors.</string>
+    <string name="hub_grant_root">Allow root access for Pssst in Magisk to set up the sensor hub.</string>
+    <string name="hub_needs_magisk">The sensor hub setup needs Magisk.</string>
+    <string name="hub_failed">That did not work. Check that Pssst has root access in Magisk.</string>
+    <string name="hub_install">Install module</string>
+    <string name="hub_remove">Remove module</string>
+    <string name="hub_reboot">Restart</string>
+    <string name="hub_check_again">Check again</string>
 </resources>
