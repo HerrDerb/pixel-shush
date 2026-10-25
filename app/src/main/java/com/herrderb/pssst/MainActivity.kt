@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -84,6 +86,7 @@ class MainActivity : ComponentActivity() {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(
                 Modifier
+                    .verticalScroll(rememberScrollState())
                     .safeDrawingPadding()
                     .padding(horizontal = 24.dp, vertical = 32.dp),
                 verticalArrangement = Arrangement.spacedBy(24.dp),
@@ -125,6 +128,8 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.clickable { showAccessDialog = true },
                     )
                 }
+
+                SensorHubCard()
             }
         }
 

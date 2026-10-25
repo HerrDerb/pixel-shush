@@ -16,4 +16,21 @@
     <string name="first_flip_title">Du hast gerade „Pssst“ verwendet</string>
     <string name="first_flip_body">Mit dieser Geste wird „Bitte nicht stören“ aktiviert und die meisten Unterbrechungen werden unterdrückt</string>
     <string name="first_flip_action">„Bitte nicht stören“-Einstellungen ändern</string>
+    <string name="hub_title">Pixel-Sensor-Hub</string>
+    <string name="hub_check_root">Root-Zugriff</string>
+    <string name="hub_check_magisk">Magisk</string>
+    <string name="hub_check_nanoapp">Nanoapp für „Umdrehen zum Stummschalten“</string>
+    <string name="hub_check_system">Als System-App installiert</string>
+    <string name="hub_active">Der Sensor-Hub erkennt, wenn das Smartphone umgedreht liegt, wie auf Pixel-Geräten. Die eigene Sensorauswertung von „Pssst“ ist aus.</string>
+    <string name="hub_install_hint">Installiere das Magisk-Modul, damit der Sensor-Hub das Umdrehen erkennt. Zuverlässiger bei ausgeschaltetem Display und sparsamer im Akkuverbrauch.</string>
+    <string name="hub_reboot_needed">Modul installiert. Starte dein Smartphone neu, um den Sensor-Hub zu verwenden.</string>
+    <string name="hub_removed">Modul entfernt. Starte dein Smartphone neu, um den Vorgang abzuschließen.</string>
+    <string name="hub_no_nanoapp">Die Nanoapp für „Umdrehen zum Stummschalten“ ist auf diesem Smartphone nicht verfügbar. „Pssst“ verwendet seine eigenen Sensoren.</string>
+    <string name="hub_grant_root">Erlaube „Pssst“ in Magisk den Root-Zugriff, um den Sensor-Hub einzurichten.</string>
+    <string name="hub_needs_magisk">Für die Einrichtung des Sensor-Hubs wird Magisk benötigt.</string>
+    <string name="hub_failed">Das hat nicht funktioniert. Prüfe, ob „Pssst“ in Magisk Root-Zugriff hat.</string>
+    <string name="hub_install">Modul installieren</string>
+    <string name="hub_remove">Modul entfernen</string>
+    <string name="hub_reboot">Neu starten</string>
+    <string name="hub_check_again">Erneut prüfen</string>
 </resources>

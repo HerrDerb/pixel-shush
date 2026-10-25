@@ -63,6 +63,15 @@ The Pixel feature runs inside Google Play Services and a sensor-hub nanoapp with
 - bypass the interruption policy for its vibration (Pssst uses alarm vibration instead, which also works in silent mode),
 - run without an ongoing notification (Android requires one for the background sensor service).
 
+### Rooted Pixels: sensor hub mode
+
+Pixels ship the Flip to Shhh detector as a nanoapp on the sensor hub (CHRE, nanoapp ID `0x476f6f676c001011`).
+It stays on the phone under custom ROMs, but only privileged apps may talk to it. On a phone with Magisk,
+Pssst shows a "Pixel sensor hub" section that checks root, Magisk and the nanoapp, and installs a Magisk module.
+The module adds Pssst as a privileged system app with `ACCESS_CONTEXT_HUB`. After a reboot the nanoapp does the detection,
+using the same messages as Google Play Services, and Pssst turns off its own sensor readout. Without root,
+nothing changes.
+
 ## Permissions
 
 | Permission | Why |
