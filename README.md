@@ -8,6 +8,12 @@ without Google services (LineageOS, microG, …).
 
 One switch. No settings, no internet permission, no tracking.
 
+<p>
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" alt="Pssst with its single switch" width="280">
+  &nbsp;
+  <img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" alt="The Pssst rule in the system Do Not Disturb modes" width="280">
+</p>
+
 ## Behavior
 
 Pssst copies the original as closely as a normal (non-system) app can:

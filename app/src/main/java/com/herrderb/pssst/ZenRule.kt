@@ -37,6 +37,11 @@ class ZenRule(private val context: Context) {
             .onFailure { Log.w(TAG, "Switching DND rule failed", it) }
     }
 
+    /** Creates the rule (or refreshes its name after a language change) so it shows up in the DND settings. */
+    fun ensure() {
+        ruleId()
+    }
+
     fun remove() {
         val id = prefs.ruleId ?: return
         if (hasAccess()) runCatching { nm.removeAutomaticZenRule(id) }
@@ -45,9 +50,30 @@ class ZenRule(private val context: Context) {
 
     private fun ruleId(): String? {
         if (!hasAccess()) return null
-        prefs.ruleId?.let { id -> if (nm.getAutomaticZenRule(id) != null) return id }
-
         val name = context.getString(R.string.zen_rule_name)
+        val trigger = context.getString(R.string.zen_rule_trigger)
+        prefs.ruleId?.let { id ->
+            val existing = nm.getAutomaticZenRule(id)
+            if (existing != null) {
+                val staleTrigger = Build.VERSION.SDK_INT >= 35 && existing.triggerDescription != trigger
+                if (staleTrigger) {
+                    // The trigger text can only be set through the builder, so rebuild the rule
+                    // from the existing one to keep the user's customizations.
+                    val updated = AutomaticZenRule.Builder(existing)
+                        .setName(name)
+                        .setTriggerDescription(trigger)
+                        .build()
+                    runCatching { nm.updateAutomaticZenRule(id, updated) }
+                        .onFailure { Log.w(TAG, "Renaming DND rule failed", it) }
+                } else if (existing.name != name) {
+                    existing.name = name
+                    runCatching { nm.updateAutomaticZenRule(id, existing) }
+                        .onFailure { Log.w(TAG, "Renaming DND rule failed", it) }
+                }
+                return id
+            }
+        }
+
         val settings = ComponentName(context, MainActivity::class.java)
         val rule = if (Build.VERSION.SDK_INT >= 35) {
             AutomaticZenRule.Builder(name, conditionId)
@@ -55,7 +81,7 @@ class ZenRule(private val context: Context) {
                 .setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_PRIORITY)
                 .setType(AutomaticZenRule.TYPE_OTHER)
                 .setIconResId(R.drawable.ic_pssst)
-                .setTriggerDescription(context.getString(R.string.zen_rule_trigger))
+                .setTriggerDescription(trigger)
                 .build()
         } else {
             AutomaticZenRule(

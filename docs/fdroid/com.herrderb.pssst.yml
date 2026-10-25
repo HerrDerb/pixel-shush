@@ -1,7 +1,9 @@
 # Draft for https://gitlab.com/fdroid/fdroiddata (metadata/com.herrderb.pssst.yml).
 # Store texts and images come from fastlane/metadata/android in this repo.
+# In the merge request, `commit` must be the full hash of the release tag.
 Categories:
-  - System
+  - Notification
+  - Volume
 License: GPL-3.0-or-later
 AuthorName: HerrDerb
 SourceCode: https://github.com/HerrDerb/pixel-shush
@@ -12,16 +14,19 @@ AutoName: Pssst
 
 RepoType: git
 Repo: https://github.com/HerrDerb/pixel-shush.git
+Binaries: https://github.com/HerrDerb/pixel-shush/releases/download/v%v/pssst-v%v.apk
 
 Builds:
-  - versionName: 0.1.0
-    versionCode: 1
-    commit: v0.1.0
+  - versionName: 0.1.1
+    versionCode: 2
+    commit: FULL_COMMIT_HASH_OF_TAG_v0.1.1
     subdir: app
     gradle:
       - yes
 
+AllowedAPKSigningKeys: 4b8407e402c1392c3e45a6c9982a7cf37483e044cdaf08333b36c0dac7852503
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.1.0
-CurrentVersionCode: 1
+CurrentVersion: 0.1.1
+CurrentVersionCode: 2

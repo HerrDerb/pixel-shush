@@ -1,0 +1,1 @@
+Pssst creates its Do Not Disturb rule as soon as you turn it on, and renames it when you change the phone language.

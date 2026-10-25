@@ -96,7 +96,10 @@ class PssstService : Service(), SensorEventListener {
         )
         screenOn = power.isInteractive
         Log.i(TAG, "Started. Wake-up accelerometer: ${sensors.getDefaultSensor(Sensor.TYPE_ACCELEROMETER, true) != null}, proximity: ${proximity?.name}")
-        handler.post { applyScreenState() }
+        handler.post {
+            zen.ensure()
+            applyScreenState()
+        }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int = START_STICKY
