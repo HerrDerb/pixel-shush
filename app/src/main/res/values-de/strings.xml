@@ -1,0 +1,19 @@
+<resources>
+    <string name="main_summary">Leg dein Smartphone mit dem Display nach unten auf eine ebene Fläche, um Benachrichtigungen stummzuschalten. Du spürst jedes Mal eine leichte Vibration, wenn „Pssst“ aktiviert wird.</string>
+    <string name="main_switch">„Pssst“ verwenden</string>
+    <string name="access_title">Zugriff auf „Bitte nicht stören“ erlauben</string>
+    <string name="access_body">Wenn du „Pssst“ aktivieren möchtest, öffne unten die Einstellungen deines Geräts und stell den Schalter neben „Pssst“ auf „An“.</string>
+    <string name="access_open">Einstellungen</string>
+    <string name="access_missing">„Pssst“ braucht Zugriff auf „Bitte nicht stören“. Tippe auf den Schalter, um ihn zu erlauben.</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="zen_rule_name">Phone umdrehen, um „Pssst“ zu aktivieren</string>
+    <string name="zen_rule_trigger">Wenn das Smartphone mit dem Display nach unten liegt</string>
+    <string name="zen_condition_summary">Smartphone liegt umgedreht</string>
+    <string name="channel_status">„Pssst“-Status</string>
+    <string name="channel_status_desc">Von Android verlangt, damit „Pssst“ die Sensoren im Hintergrund beobachten kann.</string>
+    <string name="channel_info">Tipps</string>
+    <string name="status_notification">Smartphone zum Stummschalten umdrehen</string>
+    <string name="first_flip_title">Du hast gerade „Pssst“ verwendet</string>
+    <string name="first_flip_body">Mit dieser Geste wird „Bitte nicht stören“ aktiviert und die meisten Unterbrechungen werden unterdrückt</string>
+    <string name="first_flip_action">„Bitte nicht stören“-Einstellungen ändern</string>
+</resources>

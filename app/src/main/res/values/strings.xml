@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Pssst</string>
+    <string name="main_title">Pssst</string>
+    <string name="main_summary">To silence notifications, place your phone face down on a flat surface. You\'ll feel a subtle vibration each time Pssst turns on.</string>
+    <string name="main_switch">Use Pssst</string>
+    <string name="access_title">Allow access to Do Not Disturb</string>
+    <string name="access_body">To turn on Pssst, open your device\'s settings below, then turn on the switch next to Pssst.</string>
+    <string name="access_open">Settings</string>
+    <string name="access_missing">Pssst needs Do Not Disturb access. Tap the switch to grant it.</string>
+    <string name="cancel">Cancel</string>
+    <string name="zen_rule_name">Pssst</string>
+    <string name="zen_rule_trigger">When the phone lies face down</string>
+    <string name="zen_condition_summary">Phone is face down</string>
+    <string name="channel_status">Pssst status</string>
+    <string name="channel_status_desc">Required by Android so Pssst can watch the sensors in the background.</string>
+    <string name="channel_info">Tips</string>
+    <string name="status_notification">Flip your phone to silence it</string>
+    <string name="first_flip_title">You just used Pssst</string>
+    <string name="first_flip_body">This gesture turns on Do Not Disturb and stops most interruptions</string>
+    <string name="first_flip_action">Change Do Not Disturb settings</string>
+</resources>

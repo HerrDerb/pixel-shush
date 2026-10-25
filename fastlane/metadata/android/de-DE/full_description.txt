@@ -1,0 +1,19 @@
+Leg dein Smartphone mit dem Display nach unten auf eine ebene Fläche und „Bitte nicht stören“ wird aktiviert. Heb es hoch und die Funktion wird wieder deaktiviert. Pssst bringt die von Pixel-Smartphones bekannte Geste auf jedes Android-Smartphone, auch auf Custom-ROMs ohne Google-Dienste.
+
+<b>Verhält sich wie das Original</b>
+<ul>
+<li>Wird aktiviert, sobald das Smartphone eine Sekunde lang flach und ruhig mit dem Display nach unten liegt</li>
+<li>Eine leichte dreifache Vibration beim Aktivieren, ein einzelnes Ticken beim Deaktivieren</li>
+<li>Nutzt eine eigene „Bitte nicht stören“-Regel im Modus „Nur wichtige Unterbrechungen“. Deine Ausnahmen (markierte Kontakte, Wecker, wiederholte Anrufe) funktionieren weiter und manuell aktiviertes „Bitte nicht stören“ bleibt unangetastet</li>
+<li>Die Regel erscheint in den Systemeinstellungen für „Bitte nicht stören“ und lässt sich dort anpassen</li>
+</ul>
+
+<b>Einfach</b>
+Ein Schalter. Keine Einstellungen, kein Konto, keine Internetberechtigung, kein Tracking.
+
+<b>Akkuschonend</b>
+Bei ausgeschaltetem Display schläft Pssst und wird nur vom Näherungssensor geweckt, wenn das Smartphone hingelegt oder hochgehoben wird.
+
+Pssst braucht Zugriff auf „Bitte nicht stören“, um seine Regel zu schalten. Android verlangt eine stille, dauerhafte Benachrichtigung, damit Pssst die Sensoren im Hintergrund beobachten kann.
+
+Pssst steht in keiner Verbindung zu Google.

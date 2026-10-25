@@ -1,0 +1,27 @@
+# Draft for https://gitlab.com/fdroid/fdroiddata (metadata/com.herrderb.pssst.yml).
+# Store texts and images come from fastlane/metadata/android in this repo.
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: HerrDerb
+SourceCode: https://github.com/HerrDerb/pixel-shush
+IssueTracker: https://github.com/HerrDerb/pixel-shush/issues
+Changelog: https://github.com/HerrDerb/pixel-shush/releases
+
+AutoName: Pssst
+
+RepoType: git
+Repo: https://github.com/HerrDerb/pixel-shush.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1

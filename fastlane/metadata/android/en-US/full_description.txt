@@ -1,0 +1,19 @@
+Place your phone face down on a flat surface and Do Not Disturb turns on. Pick it up and it turns off again. Pssst brings the "Flip to Shhh" gesture known from Pixel phones to any Android phone, including custom ROMs without Google services.
+
+<b>Behaves like the original</b>
+<ul>
+<li>Turns on after the phone lies face down, flat and still for one second</li>
+<li>A subtle triple vibration when Do Not Disturb turns on, a single tick when it turns off</li>
+<li>Uses its own Do Not Disturb rule in Priority mode, so your exceptions (starred contacts, alarms, repeat callers) keep working and Do Not Disturb you turned on yourself is never touched</li>
+<li>The rule shows up in the system Do Not Disturb settings, where you can fine-tune it</li>
+</ul>
+
+<b>Simple</b>
+One switch. No settings, no account, no internet permission, no tracking.
+
+<b>Battery friendly</b>
+While the screen is off, Pssst sleeps and lets the proximity sensor wake it only when the phone is put down or picked up.
+
+Pssst needs Do Not Disturb access to switch its rule. Android requires a silent ongoing notification so Pssst can keep watching the sensors in the background.
+
+Pssst is not affiliated with Google.
